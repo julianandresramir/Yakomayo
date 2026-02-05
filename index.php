@@ -24,7 +24,7 @@
         if ($resultado->num_rows > 0):
             while($fila = $resultado->fetch_assoc()):
         ?>
-                <a href="#" class="tarjeta">
+                <a href="categoria.php?id=<?php echo $fila['id']; ?>" class="tarjeta">
                     <span class="icono"><?php echo $fila["icono"]; ?></span>
                     <span class="nombre"><?php echo $fila["nombre"]; ?></span>
                 </a>
