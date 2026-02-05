@@ -1,0 +1,53 @@
+/* RESET BÁSICO */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* TIPOGRAFÍA */
+h1 { color: #2c3e50; margin-bottom: 10px; }
+h1 span { font-size: 0.6em; color: #95a5a6; vertical-align: middle; }
+p { color: #7f8c8d; max-width: 600px; margin: 0 auto 40px auto; }
+
+/* LAYOUT DE LA PARRILLA */
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* TARJETAS (COMPONENTES) */
+.tarjeta {
+    background: white;
+    padding: 25px;
+    width: 140px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* Quita el subrayado de los links */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    border-color: #3498db;
+}
+
+.icono { font-size: 45px; margin-bottom: 12px; display: block; }
+.nombre { 
+    font-weight: 600; 
+    color: #34495e; 
+    font-size: 15px; 
+    line-height: 1.3;
+}
