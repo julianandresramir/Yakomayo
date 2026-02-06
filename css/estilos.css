@@ -1,53 +1,168 @@
-/* RESET BÁSICO */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9;
-    text-align: center;
+/* =========================================
+   1. RESET Y GLOBALES (La base de todo)
+   ========================================= */
+* {
+    box-sizing: border-box; /* Evita que los rellenos engorden las cajas */
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
-/* TIPOGRAFÍA */
-h1 { color: #2c3e50; margin-bottom: 10px; }
-h1 span { font-size: 0.6em; color: #95a5a6; vertical-align: middle; }
-p { color: #7f8c8d; max-width: 600px; margin: 0 auto 40px auto; }
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background-color: #f4f6f9; /* Fondo gris suave */
+    color: #333;
+    line-height: 1.6;
+}
 
-/* LAYOUT DE LA PARRILLA */
+a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
+
+/* Contenedor central que evita que la web se estire al infinito */
 .contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px; /* Ancho máximo estándar */
+    margin: 0 auto;    /* Centrado automático */
 }
 
-/* TARJETAS (COMPONENTES) */
-.tarjeta {
+/* =========================================
+   2. CABECERAS (Header)
+   ========================================= */
+.main-header, .header-cat {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* =========================================
+   3. HOME: LA REJILLA DE CATEGORÍAS
+   ========================================= */
+.grid-categorias {
+    display: grid;
+    /* Columnas automáticas (mínimo 130px) */
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+    gap: 15px;
+    padding-bottom: 40px;
+}
+
+.card-categoria {
     background: white;
-    padding: 25px;
-    width: 140px;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-decoration: none; /* Quita el subrayado de los links */
+    padding: 20px 10px;
+    border-radius: 12px;
+    color: #555;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    /* Centrado Flex */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid transparent;
+    justify-content: center;
+    text-align: center;
 }
 
-.tarjeta:hover {
+.card-categoria:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    border-color: #3498db;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-color: #aae;
 }
 
-.icono { font-size: 45px; margin-bottom: 12px; display: block; }
-.nombre { 
-    font-weight: 600; 
-    color: #34495e; 
-    font-size: 15px; 
-    line-height: 1.3;
+.card-categoria .icono { font-size: 2rem; margin-bottom: 5px; }
+.card-categoria .nombre { font-weight: 600; font-size: 0.9rem; }
+
+
+/* =========================================
+   4. PÁGINA INTERNA: LISTA DE NEGOCIOS
+   ========================================= */
+.lista-negocios {
+    display: grid;
+    /* Columnas automáticas (mínimo 280px para tarjetas grandes) */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+/* Tarjeta de Negocio (Estilo Premium) */
+.tarjeta-negocio {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden; /* Mantiene la foto dentro de los bordes redondos */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.tarjeta-negocio:hover { transform: translateY(-5px); }
+
+/* La Foto Inteligente */
+.foto-negocio {
+    width: 100%;
+    height: 200px;     /* Altura fija */
+    object-fit: cover; /* Recorta sin deformar */
+    background-color: #eee;
+}
+
+/* Información del negocio */
+.info-negocio {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Rellena el espacio */
+    text-align: left; /* Todo alineado a la izquierda */
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+.info-negocio h2 { margin-bottom: 10px; color: #2c3e50; font-size: 1.3rem; }
+.descripcion { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+
+.detalles p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+    display: flex; 
+    align-items: center; gap: 8px; /* Icono y texto alineados */
+}
+
+/* Botón WhatsApp */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto; /* Empuja el botón al final */
+    display: block;
+}
+.btn-whatsapp:hover { background-color: #128C7E; }
+
+
+/* =========================================
+   5. RESPONSIVE (Móviles)
+   ========================================= */
+@media (max-width: 600px) {
+    /* Ajustes para celulares */
+    .contenedor { width: 95%; } /* Usamos más ancho de pantalla */
+    
+    .logo { font-size: 1.5rem; }
+    
+    /* En celular, los negocios van en una sola columna */
+    .lista-negocios {
+        grid-template-columns: 1fr; 
+    }
 }

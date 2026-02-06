@@ -1,20 +1,22 @@
 <?php 
 include 'db.php'; 
 
-// 1. ATRAPAR EL ID QUE VIENE DE LA PORTADA
+// 1. Validar ID
 if (isset($_GET['id'])) {
     $categoria_id = $_GET['id'];
 } else {
-    die("❌ Error: No has seleccionado ninguna categoría.");
+    header("Location: index.php");
+    exit();
 }
 
-// 2. CONSULTAR EL NOMBRE DE LA CATEGORÍA (Para ponerlo en el título)
+// 2. Sacar info de la CATEGORÍA
 $sql_cat = "SELECT * FROM categorias WHERE id = $categoria_id";
 $res_cat = $conn->query($sql_cat);
 $categoria = $res_cat->fetch_assoc();
 
-// 3. CONSULTAR LOS NEGOCIOS DE ESA CATEGORÍA
-// (Nota: Como aún no tenemos tabla de negocios, esto estará vacío por ahora)
+// 3. Sacar los NEGOCIOS (Aquí es donde buscamos a Casa Maurrose)
+$sql_negocios = "SELECT * FROM negocios WHERE categoria_id = $categoria_id";
+$res_negocios = $conn->query($sql_negocios);
 ?>
 
 <!DOCTYPE html>
@@ -25,23 +27,44 @@ $categoria = $res_cat->fetch_assoc();
     <title><?php echo $categoria['nombre']; ?> - Yakomayo.com</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="pagina-categoria">
 
-    <header>
-        <a href="index.php" style="text-decoration:none; font-size: 20px;">⬅ Volver al inicio</a>
-        <h1>
-            <span style="font-size: 50px; display:block;"><?php echo $categoria['icono']; ?></span>
-            <?php echo $categoria['nombre']; ?>
-        </h1>
-        <p>Listado de negocios en esta categoría</p>
+    <header class="header-cat">
+        <a href="index.php" class="btn-volver">⬅ Volver al inicio</a>
+        <div class="titulo-cat">
+            <span class="icono-cat"><?php echo $categoria['icono']; ?></span>
+            <h1><?php echo $categoria['nombre']; ?></h1>
+        </div>
     </header>
 
-    <main class="contenedor">
-        <p style="width: 100%; text-align: center; color: #999;">
-            🚧 Aquí se mostrarán los negocios de <strong><?php echo $categoria['nombre']; ?></strong>.
-            <br>
-            (Todavía no hemos creado la base de datos de negocios).
-        </p>
+    <main class="contenedor lista-negocios">
+        <?php if ($res_negocios->num_rows > 0): ?>
+            
+            <?php while($negocio = $res_negocios->fetch_assoc()): ?>
+                
+                <article class="tarjeta-negocio">
+    <img src="img/negocios/<?php echo $negocio['foto']; ?>" alt="Foto de <?php echo $negocio['nombre']; ?>" class="foto-negocio">
+    
+    <div class="info-negocio">
+        <h2><?php echo $negocio['nombre']; ?></h2>
+        <p class="descripcion"><?php echo $negocio['descripcion']; ?></p>
+        
+        <div class="detalles">
+            <p class="direccion">📍 <?php echo $negocio['direccion']; ?></p>
+            <p>📞 <?php echo $negocio['telefono']; ?></p>
+        </div>
+
+        <a href="https://wa.me/57<?php echo $negocio['telefono']; ?>" class="btn-whatsapp" target="_blank">
+            Chat en WhatsApp
+        </a>
+    </div>
+</article>
+
+            <?php endwhile; ?>
+
+        <?php else: ?>
+            <p>No hay negocios en esta categoría todavía.</p>
+        <?php endif; ?>
     </main>
 
 </body>
