@@ -47,6 +47,83 @@ a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
     color: #3498db;
     font-weight: 600;
 }
+/* =========================================
+   ESTILOS DEL BUSCADOR
+   ========================================= */
+.form-busqueda {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+.select-ciudad {
+    padding: 12px 20px;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    background-color: white; /* Importante para que no sea transparente */
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.select-ciudad:focus {
+    border-color: #3498db;
+}
+    max-width: 600px; /* Que no se estire demasiado en PC */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-busqueda input {
+    width: 70%;
+    padding: 12px 20px;
+    border: 2px solid #eee;
+    border-radius: 50px; /* Bordes muy redondos estilo Google */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-busqueda input:focus {
+    border-color: #3498db; /* Azul al escribir */
+}
+
+
+.form-busqueda button {
+    background-color: #2c3e50; /* Color oscuro elegante */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.form-busqueda button:hover {
+    background-color: #34495e;
+}
+
+/* Ajuste para celular */
+@media (max-width: 600px) {
+    .form-busqueda {
+        flex-direction: column; /* Esto ya lo tenías, asegura que se apilen */
+        align-items: center;    /* Centra todo */
+    }
+
+    /* ESTO ES LO NUEVO PARA EL SELECT EN CELULAR */
+    .select-ciudad {
+        width: 100%;       /* Que ocupe todo el ancho */
+        margin-bottom: 10px; /* Un espacito para que no se pegue al botón */
+    }
+
+    .form-busqueda input, 
+    .form-busqueda button {
+        width: 100%;       /* Asegura que los otros también sean anchos */
+    }
+}
 
 /* =========================================
    3. HOME: LA REJILLA DE CATEGORÍAS
