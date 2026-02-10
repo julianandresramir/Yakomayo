@@ -1,4 +1,14 @@
 /* =========================================
+   FORZAR MODO CLARO (Para que el celular no oscurezca la web)
+   ========================================= */
+:root {
+    color-scheme: light;
+}
+
+/* ... Aquí abajo sigue tu código normal ... */
+/* 1. RESET Y GLOBALES... */
+
+/* =========================================
    1. RESET Y GLOBALES (La base de todo)
    ========================================= */
 * {
@@ -8,10 +18,11 @@
 }
 
 body {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    background-color: #f4f6f9; /* Fondo gris suave */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f4e6; /* <--- Fondo Arena Suave */
     color: #333;
-    line-height: 1.6;
 }
 
 a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
@@ -26,26 +37,63 @@ a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
 /* =========================================
    2. CABECERAS (Header)
    ========================================= */
-.main-header, .header-cat {
-    background-color: white;
-    padding: 20px 0;
+/* =========================================
+   NUEVO HEADER Y LOGO (Imagen + Texto)
+   ========================================= */
+.main-header {
     text-align: center;
-    border-bottom: 1px solid #eee;
+    padding: 40px 20px;
+    /* Ponemos el color de fondo dorado original para que el texto blanco se vea */
+    background-color: #cfa34b; /* Este es un tono similar al original, puedes ajustarlo */
+    color: white; /* Todo el texto dentro del header será blanco por defecto */
+}
+
+/* Contenedor flexible para centrar todo verticalmente */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El enlace que envuelve al logo */
+.logo-compuesto {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    display: flex;
+    flex-direction: column; /* Apila imagen sobre texto */
+    align-items: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.logo-compuesto:hover {
+    transform: scale(1.05); /* Efecto zoom suave al pasar el mouse */
+}
+
+/* Estilos para la imagen del jaguar */
+.logo-img-jaguar {
+    height: 180px; /* ANTES ERA 90px - Ahora es mucho más grande */
+    width: auto;
+    margin-bottom: 5px;
+    display: block;
+    transition: transform 0.3s; /* Animación suave */
+}
+
+/* Estilos para el texto "Yakomayo.com" */
+.logo-texto {
+    font-size: 2.5rem; /* Texto grande y potente */
+    font-weight: 700; /* Negrita */
+    color: white;
+    margin: 0; /* Quitamos márgenes por defecto */
+    letter-spacing: 1px; /* Un poquito de espacio entre letras */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Sombra suave para que resalte más */
+}
+
+/* El slogan ahora debe ser blanco también */
+.slogan {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9); /* Blanco un poco transparente */
     margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #2c3e50;
-}
-
-.btn-volver {
-    display: inline-block;
-    margin-bottom: 10px;
-    color: #3498db;
-    font-weight: 600;
+    font-weight: 500;
 }
 /* =========================================
    ESTILOS DEL BUSCADOR
@@ -107,21 +155,39 @@ a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
 }
 
 /* Ajuste para celular */
+/* =========================================
+   3. SECCIÓN RESPONSIVE (CELULAR)
+   ========================================= */
 @media (max-width: 600px) {
+    
+    /* 1. ARREGLO DEL COLOR: Dorado brillante para que no se vea café */
+    .main-header {
+        background-color: #FFC107; /* Amarillo Ámbar intenso */
+    }
+
+    /* 2. ARREGLO DEL BUSCADOR */
     .form-busqueda {
-        flex-direction: column; /* Esto ya lo tenías, asegura que se apilen */
-        align-items: center;    /* Centra todo */
+        flex-direction: column;
+        align-items: center;
     }
 
-    /* ESTO ES LO NUEVO PARA EL SELECT EN CELULAR */
     .select-ciudad {
-        width: 100%;       /* Que ocupe todo el ancho */
-        margin-bottom: 10px; /* Un espacito para que no se pegue al botón */
+        width: 100%;
+        margin-bottom: 10px;
     }
 
-    .form-busqueda input, 
+    .form-busqueda input,
     .form-busqueda button {
-        width: 100%;       /* Asegura que los otros también sean anchos */
+        width: 100%;
+    }
+
+    /* 3. ARREGLO DEL JAGUAR (Ahora sí está dentro del bloque móvil) */
+    .logo-img-jaguar {
+        height: 140px; /* Tamaño ideal para móvil */
+    }
+
+    .logo-texto {
+        font-size: 2.2rem;
     }
 }
 
@@ -227,6 +293,19 @@ a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
     display: block;
 }
 .btn-whatsapp:hover { background-color: #128C7E; }
+
+/* Pega esto al final del archivo si no encuentras la línea */
+.categoria, .tarjeta-negocio {
+    background-color: white; /* <--- Esto hace que la tarjeta sea blanca */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombrita suave */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.categoria:hover, .tarjeta-negocio:hover {
+    transform: translateY(-5px); /* Se levanta al pasar el mouse */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
 
 
 /* =========================================

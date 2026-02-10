@@ -11,33 +11,38 @@
 <body>
 
     <header class="main-header">
-        <div class="contenedor">
-            <h1 class="logo">🌴 Yakomayo.com</h1>
-            <p class="slogan">Descubre los mejores negocios, servicios y lugares del Putumayo.</p>
-            
-            <form action="buscar.php" method="GET" class="form-busqueda">
-    
-    <input type="text" name="q" placeholder="¿Qué buscas? Ej: Pizza, Ropa..." required>
-    
-    <select name="ciudad" class="select-ciudad">
-        <option value="">Todo el Putumayo</option>
-        <option value="La Hormiga">La Hormiga (Valle del Guamuez)</option>
-        <option value="Mocoa">Mocoa</option>
-        <option value="Orito">Orito</option>
-        <option value="Puerto Asís">Puerto Asís</option>
-        <option value="Puerto Caicedo">Puerto Caicedo</option>
-        <option value="Puerto Guzmán">Puerto Guzmán</option>
-        <option value="Puerto Limón">Puerto Limón</option>
-        <option value="Puerto Umbría">Puerto Umbría</option>
-        <option value="Sibundoy">Sibundoy</option>
-        <option value="Villagarzón">Villagarzón</option>
-        </select>
+    <div class="contenedor header-content">
+        
+        <a href="index.php" class="logo-compuesto">
+            <img src="img/jaguar-solo.png" alt="Logo Jaguar Yakomayo" class="logo-img-jaguar">
+            <h1 class="logo-texto">Yakomayo.com</h1>
+        </a>
 
-    <button type="submit">Buscar 🔍</button>
-</form>
+        <p class="slogan">Descubre los mejores negocios, servicios y lugares del Putumayo.</p>
+        
+        <form action="buscar.php" method="GET" class="form-busqueda">
+            <input type="text" name="q" placeholder="¿Qué buscas? Ej: Pizza, Ropa..." required>
+            <select name="ciudad" class="select-ciudad">
+    <option value="">📍 Todo el Putumayo</option>
+    <option value="Mocoa"selected>Mocoa</option>
+    <option value="Puerto Asís">Puerto Asís</option>
+    <option value="Orito">Orito</option>
+    <option value="Sibundoy">Sibundoy</option>
+    <option value="San Francisco">San Francisco</option>
+    <option value="Villagarzón">Villagarzón</option>
+    <option value="Puerto Guzmán">Puerto Guzmán</option>
+    <option value="Puerto Leguízamo">Puerto Leguízamo</option>
+    <option value="Valle del Guamuez">Valle del Guamuez (La Hormiga)</option>
+    <option value="San Miguel">San Miguel (La Dorada)</option>
+    <option value="Santiago">Santiago</option>
+    <option value="Colón">Colón</option>
+    <option value="Puerto Caicedo">Puerto Caicedo</option>
+</select>
+            <button type="submit">Buscar 🔍</button>
+        </form>
 
-        </div>
-    </header>
+    </div>
+</header>
 
     <main class="contenedor">
         
