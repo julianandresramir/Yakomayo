@@ -194,38 +194,55 @@ a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
 /* =========================================
    3. HOME: LA REJILLA DE CATEGORÍAS
    ========================================= */
+/* =========================================
+   GRID DE CATEGORÍAS (21 ITEMS)
+   ========================================= */
 .grid-categorias {
     display: grid;
-    /* Columnas automáticas (mínimo 130px) */
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
     gap: 15px;
-    padding-bottom: 40px;
+    padding: 20px;
+    max-width: 1400px; /* Aumentamos el ancho para que quepan 7 */
+    margin: 0 auto;
+    
+    /* EN PC: 7 COLUMNAS EXACTAS */
+    grid-template-columns: repeat(7, 1fr);
 }
 
-.card-categoria {
-    background: white;
-    padding: 20px 10px;
-    border-radius: 12px;
-    color: #555;
-    border: 1px solid #f0f0f0;
-    transition: transform 0.2s, box-shadow 0.2s;
+.categoria {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px 5px; /* Menos padding lateral para que quepan */
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
     
-    /* Centrado Flex */
+    /* Flexbox para alinear contenido */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
-.card-categoria:hover {
+.categoria:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    border-color: #aae;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-color: #FFC107;
 }
 
-.card-categoria .icono { font-size: 2rem; margin-bottom: 5px; }
-.card-categoria .nombre { font-weight: 600; font-size: 0.9rem; }
+.categoria h3 {
+    margin: 5px 0;
+    font-size: 0.95rem; /* Letra un poco más pequeña para que quepa */
+    font-weight: 700;
+}
+
+.subtexto {
+    font-size: 0.75rem;
+    color: #777;
+    line-height: 1.2;
+}
 
 
 /* =========================================
@@ -306,19 +323,107 @@ a { text-decoration: none; } /* Quita subrayado a todos los enlaces */
     transform: translateY(-5px); /* Se levanta al pasar el mouse */
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
+/* =========================================
+   FOOTER (PIE DE PÁGINA)
+   ========================================= */
+.footer-principal {
+    background-color: #2c2c2c; /* Gris oscuro elegante */
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    margin-top: 50px;
+}
+
+.contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 250px;
+}
+
+.columna-footer h3 {
+    color: #FFC107; /* El dorado de la marca */
+    margin-top: 0;
+}
+
+.columna-footer h4 {
+    border-bottom: 2px solid #FFC107;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 10px;
+}
+
+.columna-footer a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.columna-footer a:hover {
+    color: #FFC107; /* Se pone dorado al pasar el mouse */
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Ajuste rápido para móvil */
+@media (max-width: 600px) {
+    .contenedor-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
 
 /* =========================================
    5. RESPONSIVE (Móviles)
    ========================================= */
+/* =========================================
+   RESPONSIVE (TABLETS Y LAPTOS PEQUEÑAS)
+   ========================================= */
+@media (max-width: 1200px) {
+    .grid-categorias {
+        /* En pantallas medianas bajamos a 5 o 4 para que no se vea apretado */
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
+/* =========================================
+   RESPONSIVE (CELULARES)
+   ========================================= */
 @media (max-width: 600px) {
-    /* Ajustes para celulares */
-    .contenedor { width: 95%; } /* Usamos más ancho de pantalla */
-    
-    .logo { font-size: 1.5rem; }
-    
-    /* En celular, los negocios van en una sola columna */
-    .lista-negocios {
-        grid-template-columns: 1fr; 
+    .grid-categorias {
+        /* En celular: 2 COLUMNAS */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+
+    /* TRUCO: CENTRAR LA ÚLTIMA TARJETA SI ES IMPAR */
+    /* Como tienes 21 tarjetas, la #21 queda sola en una fila de 2 */
+    .categoria:last-child {
+        grid-column: 1 / -1; /* Ocupa todo el ancho de la fila */
+        width: 60%;          /* Pero visualmente solo ocupa el 60% */
+        margin: 0 auto;      /* Y se centra automáticamente */
     }
 }
