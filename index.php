@@ -21,7 +21,7 @@
         <p class="slogan">Descubre los mejores negocios, servicios y lugares del Putumayo.</p>
         
         <form action="buscar.php" method="GET" class="form-busqueda">
-            <input type="text" name="q" placeholder="¿Qué buscas? Ej: Pizza, Ropa..." required>
+            <input type="text" name="q" placeholder="¿Qué buscas?" required>
             <select name="ciudad" class="select-ciudad">
     <option value="">📍 Todo el Putumayo</option>
     <option value="Mocoa"selected>Mocoa</option>
