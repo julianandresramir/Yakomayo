@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group"><label>Nombre del Negocio:</label><input type="text" name="nombre" required></div>
             
             <div class="form-group">
-                <label>Categoría (Petición 5 - Todas las categorías):</label>
+                <label>Categoría:</label>
                 <select name="categoria_id" required>
                     <option value="">Selecciona una categoría...</option>
                     <option value="1">🍔 Restaurantes y Comidas Rápidas</option>
