@@ -43,7 +43,7 @@ $nombres_categorias = [
 $titulo_categoria = isset($nombres_categorias[$id_categoria]) ? $nombres_categorias[$id_categoria] : "Resultados";
 
 // 4. Buscar los negocios de esa categoría en la BD
-$sql = "SELECT * FROM negocios WHERE categoria_id = $id_categoria ORDER BY es_premium DESC, id DESC";
+$sql = "SELECT * FROM comercios WHERE categoria_id = $id_categoria ORDER BY es_premium DESC, id DESC";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>

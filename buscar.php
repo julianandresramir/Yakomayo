@@ -10,7 +10,7 @@ $busqueda = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $ciudad = isset($_GET['ciudad']) ? $conn->real_escape_string($_GET['ciudad']) : '';
 
 // 3. LA CONSULTA SQL (Busca por nombre o descripción, y prioriza a los VIP)
-$sql = "SELECT * FROM negocios WHERE (nombre LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%')";
+$sql = "SELECT * FROM comercios WHERE (nombre LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%')";
 
 if (!empty($ciudad)) {
     $sql .= " AND municipio = '$ciudad'";

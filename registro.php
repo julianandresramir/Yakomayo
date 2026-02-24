@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $acepta_exencion = isset($_POST['acepta_exencion']) ? 'SI' : 'NO';
 
     // Inyectar a la base de datos
-    $sql = "INSERT INTO negocios (categoria_id, nombre, descripcion, direccion, telefono, municipio, foto, fecha_registro, ip_usuario, acepta_datos, acepta_veracidad, acepta_exencion, version_terminos) 
+    $sql = "INSERT INTO comercios (categoria_id, nombre, descripcion, direccion, telefono, municipio, foto, fecha_registro, ip_usuario, acepta_datos, acepta_veracidad, acepta_exencion, version_terminos) 
             VALUES ('$categoria_id', '$nombre', '$descripcion', '$direccion', '$telefono', '$municipio', '$foto', '$fecha_registro', '$ip_usuario', '$acepta_datos', '$acepta_veracidad', '$acepta_exencion', '$version_terminos')";
 
     if ($conn->query($sql) === TRUE) {

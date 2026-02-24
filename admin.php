@@ -13,7 +13,7 @@ $mensaje = "";
 // A. Si el CEO hace clic en "Eliminar"
 if (isset($_GET['eliminar'])) {
     $id_eliminar = $_GET['eliminar'];
-    $sql_delete = "DELETE FROM negocios WHERE id = $id_eliminar";
+    $sql_delete = "DELETE FROM comercios WHERE id = $id_eliminar";
     if ($conn->query($sql_delete) === TRUE) {
         $mensaje = "<div class='alerta exito'><i class='fas fa-check-circle'></i> Negocio eliminado correctamente del directorio.</div>";
     } else {
@@ -36,7 +36,7 @@ if (isset($_GET['toggle_premium']) && isset($_GET['estado_actual'])) {
 }
 
 // 2. Traer todos los negocios para mostrarlos en la tabla (Los más nuevos primero)
-$sql = "SELECT * FROM negocios ORDER BY id DESC";
+$sql = "SELECT * FROM comercios ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
 
