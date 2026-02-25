@@ -87,9 +87,21 @@ $result = $conn->query($sql);
                             </div>
 
                             <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="display: block; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold;">
-                                    <i class="fab fa-whatsapp"></i> Contactar
-                                </a>
+                               <a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="display: block; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+    <i class="fab fa-whatsapp"></i> Contactar
+</a>
+
+<?php if(!empty($row['facebook'])): ?>
+<a href="<?php echo $row['facebook']; ?>" target="_blank" style="display: block; background-color: #1877F2; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+    <i class="fab fa-facebook"></i> Facebook
+</a>
+<?php endif; ?>
+
+<?php if(!empty($row['instagram'])): ?>
+<a href="<?php echo $row['instagram']; ?>" target="_blank" style="display: block; background-color: #E1306C; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+    <i class="fab fa-instagram"></i> Instagram
+</a>
+<?php endif; ?>
 
                                 <?php if($row['es_premium'] == 1): ?>
                                     <div style="display: flex; gap: 8px; justify-content: space-between; align-items: center;">

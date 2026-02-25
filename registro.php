@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $direccion = $_POST['direccion'];
     $municipio = $_POST['municipio'];
     $telefono = $_POST['telefono'];
+    $palabras_clave = $_POST['palabras_clave'] ?? '';
     $foto = 'default.jpg'; 
 
     // DATOS INVISIBLES (Auditoría Legal SIC)
@@ -27,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $acepta_exencion = isset($_POST['acepta_exencion']) ? 'SI' : 'NO';
 
     // Inyectar a la base de datos
-    $sql = "INSERT INTO comercios (categoria_id, nombre, descripcion, direccion, telefono, municipio, foto, fecha_registro, ip_usuario, acepta_datos, acepta_veracidad, acepta_exencion, version_terminos) 
-            VALUES ('$categoria_id', '$nombre', '$descripcion', '$direccion', '$telefono', '$municipio', '$foto', '$fecha_registro', '$ip_usuario', '$acepta_datos', '$acepta_veracidad', '$acepta_exencion', '$version_terminos')";
+    $sql = "INSERT INTO comercios (categoria_id, nombre, descripcion, palabras_clave, direccion, telefono, municipio, imagen, es_premium) 
+        VALUES ('$categoria_id', '$nombre', '$descripcion', '$palabras_clave', '$direccion', '$telefono', '$municipio', '$foto', 1)";
 
     if ($conn->query($sql) === TRUE) {
         $mensaje = "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: bold;'>¡Negocio registrado con éxito! 🎉</div>";
@@ -103,6 +104,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group"><label>Descripción corta:</label><textarea name="descripcion" required rows="3"></textarea></div>
+            <div class="form-group">
+    <label>Palabras Clave (Ocultas al público):</label>
+    <input type="text" name="palabras_clave" placeholder="Ej: ropa, vestidos, alquiler, moda">
+</div>
+
             <div class="form-group"><label>Dirección:</label><input type="text" name="direccion" required></div>
             
             <div class="form-group">
@@ -121,8 +127,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="Santiago">Santiago</option>
                     <option value="Puerto Leguízamo">Puerto Leguízamo</option>
                     <option value="San Miguel">San Miguel</option>
-                </select>
-            </div>
+  </select>
+    </div>
+
+    <div class="form-group">
+        <label>Link de Facebook (Opcional):</label>
+        <input type="text" name="facebook" placeholder="Ej: https://facebook.com/tu-pagina">
+    </div>
+
+    <div class="form-group">
+        <label>Link de Instagram (Opcional):</label>
+        <input type="text" name="instagram" placeholder="Ej: https://instagram.com/tu-perfil">
+    </div>
 
             <div class="form-group"><label>Teléfono (WhatsApp):</label><input type="number" name="telefono" required></div>
 
