@@ -267,7 +267,7 @@
                 Yakomayo.com
             </h3>
             <p style="color: #bbb; font-size: 1rem; line-height: 1.7; margin-top: 20px;">
-                Del parque a la gran industria: todo el Putumayo a un clic. Únete a la plataforma digital más inclusiva y potente de la región.
+                Todo el Putumayo a un clic. Únete a la plataforma digital más inclusiva y potente de la región.
             </p>
         </div>
 

@@ -105,7 +105,7 @@ $result = $conn->query($sql);
                     <?php endif; ?>
 
                     <div style="height: 200px; background-color: #eee; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                        <?php $foto_mostrar = !empty($row['foto']) ? "img/negocios/" . $row['foto'] : "img/jaguar-solo.png"; ?>
+                        <?php $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; ?> 
                         <img src="<?php echo $foto_mostrar; ?>" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
 
@@ -184,7 +184,7 @@ $result = $conn->query($sql);
                 Yakomayo.com
             </h3>
             <p style="color: #bbb; font-size: 1rem; line-height: 1.7; margin-top: 20px;">
-                Del parque a la gran industria: todo el Putumayo a un clic. Únete a la plataforma digital más inclusiva y potente de la región.
+                todo el Putumayo a un clic. Únete a la plataforma digital más inclusiva y potente de la región.
             </p>
         </div>
 

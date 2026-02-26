@@ -10,7 +10,7 @@ $busqueda = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $ciudad = isset($_GET['ciudad']) ? $conn->real_escape_string($_GET['ciudad']) : '';
 
 // 3. LA CONSULTA SQL (Busca por nombre o descripción, y prioriza a los VIP)
-$sql = "SELECT * FROM comercios WHERE (nombre LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%')";
+$sql = "SELECT * FROM comercios WHERE (nombre LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%' OR palabras_clave LIKE '%$busqueda%')";
 
 if (!empty($ciudad)) {
     $sql .= " AND municipio = '$ciudad'";
@@ -73,7 +73,7 @@ $result = $conn->query($sql);
                         <?php endif; ?>
 
                         <div style="height: 200px; background-color: #eee; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                            <?php $foto_mostrar = !empty($row['foto']) ? "img/negocios/" . $row['foto'] : "img/jaguar-solo.png"; ?>
+                            <?php $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; ?>
                             <img src="<?php echo $foto_mostrar; ?>" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
 
@@ -147,7 +147,7 @@ $result = $conn->query($sql);
                 Yakomayo.com
             </h3>
             <p style="color: #bbb; font-size: 1rem; line-height: 1.7; margin-top: 20px;">
-                Del parque a la gran industria: todo el Putumayo a un clic. Únete a la plataforma digital más inclusiva y potente de la región.
+              Todo el Putumayo a un clic. Únete a la plataforma digital más inclusiva y potente de la región.
             </p>
         </div>
 
