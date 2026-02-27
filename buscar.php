@@ -72,10 +72,17 @@ $result = $conn->query($sql);
                             </div>
                         <?php endif; ?>
 
-                        <div style="height: 200px; background-color: #eee; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                            <?php $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; ?>
-                            <img src="<?php echo $foto_mostrar; ?>" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                        <div style="height: 200px; background-color: #eee; display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;">
+    <?php 
+        $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; 
+        $ancho_foto = ($row['es_premium'] == 1 && !empty($row['imagen_2'])) ? '90%' : '100%';
+    ?>
+    <img src="<?php echo $foto_mostrar; ?>" style="min-width: <?php echo $ancho_foto; ?>; height: 100%; object-fit: cover; scroll-snap-align: start; border-radius: 4px;">
+    
+    <?php if($row['es_premium'] == 1 && !empty($row['imagen_2'])): ?>
+    <img src="img/Negocios/<?php echo $row['imagen_2']; ?>" style="min-width: 90%; height: 100%; object-fit: cover; scroll-snap-align: start; border-radius: 4px;">
+    <?php endif; ?>
+</div>
 
                         <div style="padding: 20px;">
                             <h3 style="margin-top: 0; color: #333;"><?php echo $row['nombre']; ?></h3>

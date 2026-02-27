@@ -104,10 +104,17 @@ $result = $conn->query($sql);
                         </div>
                     <?php endif; ?>
 
-                    <div style="height: 200px; background-color: #eee; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                        <?php $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; ?> 
-                        <img src="<?php echo $foto_mostrar; ?>" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                   <div style="height: 200px; background-color: #eee; display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;">
+    <?php 
+        $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; 
+        $ancho_foto = ($row['es_premium'] == 1 && !empty($row['imagen_2'])) ? '90%' : '100%';
+    ?>
+    <img src="<?php echo $foto_mostrar; ?>" style="min-width: <?php echo $ancho_foto; ?>; height: 100%; object-fit: cover; scroll-snap-align: start; border-radius: 4px;">
+    
+    <?php if($row['es_premium'] == 1 && !empty($row['imagen_2'])): ?>
+    <img src="img/Negocios/<?php echo $row['imagen_2']; ?>" style="min-width: 90%; height: 100%; object-fit: cover; scroll-snap-align: start; border-radius: 4px;">
+    <?php endif; ?>
+</div>
 
                     <div style="padding: 20px;">
                         <h3 style="margin-top: 0; color: #333;"><?php echo $row['nombre']; ?></h3>
@@ -118,49 +125,34 @@ $result = $conn->query($sql);
                             <i class="fas fa-exclamation-triangle"></i> Yakomayo no procesa pagos. Verifica al vendedor.
                         </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
-                            
-                           <a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="display: block; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold;">
-    <i class="fab fa-whatsapp"></i> Contactar
-</a>
+                       <div style="display: flex; gap: 8px; margin-top: 15px;">
+    
+    <a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="flex-grow: 1; background-color: #25D366; color: white; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp
+    </a>
 
-<?php if(!empty($row['facebook'])): ?>
-<a href="<?php echo $row['facebook']; ?>" target="_blank" style="display: block; background-color: #1877F2; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;">
-    <i class="fab fa-facebook"></i> Facebook
-</a>
-<?php endif; ?>
+    <?php if($row['es_premium'] == 1): ?>
+        
+        <?php if(!empty($row['url_mapa'])): ?>
+        <a href="<?php echo $row['url_mapa']; ?>" target="_blank" style="width: 42px; height: 42px; background-color: #ffffff; color: #EA4335; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; border: 1px solid #e0e0e0; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+        <?php endif; ?>
 
-<?php if(!empty($row['instagram'])): ?>
-<a href="<?php echo $row['instagram']; ?>" target="_blank" style="display: block; background-color: #E1306C; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;">
-    <i class="fab fa-instagram"></i> Instagram
-</a>
-<?php endif; ?>
+        <?php if(!empty($row['instagram'])): ?>
+        <a href="<?php echo $row['instagram']; ?>" target="_blank" style="width: 42px; height: 42px; background-color: #ffffff; color: #E1306C; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; border: 1px solid #e0e0e0; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <?php endif; ?>
 
-                            <?php if($row['es_premium'] == 1): ?>
-                                <div style="display: flex; gap: 8px; justify-content: space-between; align-items: center;">
-                                    
-                                    <?php if(!empty($row['url_mapa'])): ?>
-                                        <a href="<?php echo $row['url_mapa']; ?>" target="_blank" style="flex-grow: 1; background-color: #e74c3c; color: white; text-align: center; padding: 8px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.2s;">
-                                            <i class="fas fa-map-marked-alt"></i> Cómo Llegar
-                                        </a>
-                                    <?php endif; ?>
+        <?php if(!empty($row['facebook'])): ?>
+        <a href="<?php echo $row['facebook']; ?>" target="_blank" style="width: 42px; height: 42px; background-color: #ffffff; color: #1877F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; border: 1px solid #e0e0e0; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <?php endif; ?>
 
-                                    <div style="display: flex; gap: 8px;">
-                                        <?php if(!empty($row['link_facebook'])): ?>
-                                            <a href="<?php echo $row['link_facebook']; ?>" target="_blank" style="background-color: #1877F2; color: white; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 5px; text-decoration: none; font-size: 1.1rem;">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        <?php endif; ?>
-
-                                        <?php if(!empty($row['link_instagram'])): ?>
-                                            <a href="<?php echo $row['link_instagram']; ?>" target="_blank" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 5px; text-decoration: none; font-size: 1.1rem;">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
-
-                                </div>
-                            <?php endif; ?>
+    <?php endif; ?>
+</div>
 
                         </div>
                         

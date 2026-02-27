@@ -69,9 +69,10 @@
             
             <ul class="features-list">
                 <li><i class="fas fa-check-circle"></i> Aparición en el directorio web</li>
+                <li><i class="fas fa-check-circle"></i> 1 Foto de tu fachada o logo</li>
                 <li><i class="fas fa-check-circle"></i> Botón directo a tu WhatsApp</li>
                 <li><i class="fas fa-check-circle"></i> Dirección y categoría básica</li>
-                <li class="missing"><i class="fas fa-times-circle"></i> Imagen genérica (Sin logo propio)</li>
+                <li class="missing"><i class="fas fa-times-circle"></i> Sin Carrusel de 2 fotos</li>
                 <li class="missing"><i class="fas fa-times-circle"></i> Posicionamiento debajo de los VIP</li>
                 <li class="missing"><i class="fas fa-times-circle"></i> Sin botones a Redes Sociales</li>
                 <li class="missing"><i class="fas fa-times-circle"></i> Sin botón de GPS "Cómo Llegar"</li>
@@ -81,23 +82,41 @@
         </div>
 
         <div class="pricing-card card-premium">
-            <div class="ribbon"><i class="fas fa-star"></i> MÁS VENDIDO</div>
             <div class="pricing-header">
-                <h2>VIP Destacado</h2>
-                <p style="color: #7f8c8d;">La vitrina completa para aplastar a la competencia.</p>
-                <div class="price">$30.000 <span>COP / mes</span></div> </div>
+                <h2>VIP Mensual</h2>
+                <p style="color: #7f8c8d;">La vitrina digital completa para destacar y ser la primera opción de tus clientes.</p>
+                <div class="price">$30.000 <span>COP / mes</span></div> 
+            </div>
             
             <ul class="features-list">
                 <li><i class="fas fa-check-circle"></i> <strong>Posición #1 en las búsquedas</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Carrusel deslizable (Hasta 2 fotos)</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Marco Dorado "Destacado"</strong></li>
-                <li><i class="fas fa-check-circle"></i> <strong>Foto real de tu fachada o logo</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Botones a Facebook e Instagram</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Botón GPS para Google Maps</strong></li>
                 <li><i class="fas fa-check-circle"></i> Botón directo a tu WhatsApp</li>
                 <li><i class="fas fa-check-circle"></i> Soporte prioritario del equipo</li>
             </ul>
             
-            <a href="https://wa.me/3002580755?text=Hola%20Julián,%20quiero%20el%20Plan%20VIP%20Destacado%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium">¡Quiero ser Premium! <i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/3002580755?text=Hola%20Julián,%20quiero%20el%20Plan%20VIP%20Mensual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium">¡Quiero ser Premium! <i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <div class="pricing-card card-premium" style="border: 2px solid #27ae60;">
+            <div class="ribbon" style="background-color: #27ae60;"><i class="fas fa-gift"></i> AHORRA 2 MESES</div>
+            <div class="pricing-header">
+                <h2>VIP Anual</h2>
+                <p style="color: #7f8c8d;">Maximiza tu impacto todo el año pagando menos. Tu mejor inversión a largo plazo.</p>
+                <div class="price">$300.000 <span>COP / año</span></div> 
+            </div>
+            
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Todo lo del plan VIP Mensual</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Ahorras $60.000 pesos al año</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Facturación en un solo pago</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Congelas el precio (Inmune a subidas)</strong></li>
+            </ul>
+            
+            <a href="https://wa.me/3002580755?text=Hola%20Julián,%20quiero%20aprovechar%20el%20ahorro%20del%20Plan%20VIP%20Anual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium" style="background-color: #27ae60; color: white;">¡Quiero Ahorrar! <i class="fab fa-whatsapp"></i></a>
         </div>
 
     </div>
