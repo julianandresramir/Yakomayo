@@ -28,8 +28,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $acepta_exencion = isset($_POST['acepta_exencion']) ? 'SI' : 'NO';
 
     // Inyectar a la base de datos
-    $sql = "INSERT INTO comercios (categoria_id, nombre, descripcion, palabras_clave, direccion, telefono, municipio, imagen, es_premium) 
-        VALUES ('$categoria_id', '$nombre', '$descripcion', '$palabras_clave', '$direccion', '$telefono', '$municipio', '$foto', 1)";
+   // --- 🕵️‍♂️ INICIO DEL BLINDAJE LEGAL ---
+    
+    // 1. Configuramos el reloj del servidor para la hora de Colombia (Putumayo)
+    date_default_timezone_set('America/Bogota'); 
+    $fecha_registro = date('Y-m-d H:i:s'); // Captura el momento exacto
+    
+    // 2. Capturamos la huella digital (Dirección IP)
+    $ip_registro = $_SERVER['REMOTE_ADDR']; 
+    
+    // 3. Verificamos que las 3 casillas legales obligatorias fueron marcadas
+    if (isset($_POST['acepta_datos']) && isset($_POST['acepta_veracidad']) && isset($_POST['acepta_exencion'])) {
+        $acepta_terminos = 1; // El 1 maestro que significa: "Aceptó el paquete legal completo"
+    } else {
+        $acepta_terminos = 0; // Por si alguien intenta hacer trampa saltándose el HTML
+    }
+
+    // --- 🛑 FIN DEL BLINDAJE LEGAL ---
+
+    // La instrucción SQL para guardar en la bodega
+    $sql = "INSERT INTO comercios (categoria_id, nombre, descripcion, palabras_clave, direccion, telefono, municipio, imagen, es_premium, acepta_terminos, ip_registro, fecha_registro) 
+            VALUES ('$categoria_id', '$nombre', '$descripcion', '$palabras_clave', '$direccion', '$telefono', '$municipio', '$foto', 1, '$acepta_terminos', '$ip_registro', '$fecha_registro')";
 
     if ($conn->query($sql) === TRUE) {
         $mensaje = "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: bold;'>¡Negocio registrado con éxito! 🎉</div>";

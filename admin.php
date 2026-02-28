@@ -27,7 +27,7 @@ if (isset($_GET['toggle_premium']) && isset($_GET['estado_actual'])) {
     // Cambiador mágico: si es 1 pasa a 0, si es 0 pasa a 1
     $nuevo_estado = $_GET['estado_actual'] == 1 ? 0 : 1; 
     
-    $sql_premium = "UPDATE negocios SET es_premium = $nuevo_estado WHERE id = $id_premium";
+    $sql_premium = "UPDATE comercios SET es_premium = $nuevo_estado WHERE id = $id_premium";
     if ($conn->query($sql_premium) === TRUE) {
         $mensaje = "<div class='alerta exito'><i class='fas fa-star'></i> Estado Premium actualizado con éxito.</div>";
     } else {

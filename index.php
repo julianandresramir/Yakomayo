@@ -257,6 +257,62 @@
 </div>
 
     </main>
+    <section style="background-color: #f8f9fa; padding: 60px 20px; margin-top: 40px; border-top: 1px solid #eee;">
+        <div class="contenedor" style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; margin-bottom: 10px; color: #333; font-weight: 800; font-size: 2rem;">
+                <i class="fas fa-star" style="color: #FFC107;"></i> Negocios Destacados
+            </h2>
+            <p style="text-align: center; color: #777; margin-bottom: 40px; font-size: 1.1rem;">Los favoritos del Putumayo. ¡Conócelos!</p>
+
+            <div style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; scrollbar-width: none;">
+                
+                <?php
+                // Inteligencia Artificial del sistema: Buscar 5 negocios Premium al azar
+                $sql_vip = "SELECT * FROM comercios WHERE es_premium = 1 ORDER BY RAND() LIMIT 5";
+                $result_vip = $conn->query($sql_vip);
+
+                if ($result_vip && $result_vip->num_rows > 0) {
+                    while($vip = $result_vip->fetch_assoc()) {
+                        $foto_vip = !empty($vip['imagen']) ? "img/Negocios/" . $vip['imagen'] : "img/jaguar-solo.png";
+                        ?>
+                        
+                        <a href="https://wa.me/57<?php echo $vip['telefono']; ?>" target="_blank" style="min-width: 260px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-decoration: none; color: inherit; scroll-snap-align: start; overflow: hidden; display: block; border: 2px solid #FFC107; transition: transform 0.3s;">
+                            
+                            <div style="height: 160px; overflow: hidden; position: relative;">
+                                <span style="position: absolute; top: 12px; left: 12px; background: #FFC107; color: black; font-size: 0.75rem; font-weight: bold; padding: 5px 10px; border-radius: 20px; z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                                    <i class="fas fa-crown"></i> VIP
+                                </span>
+                                <img src="<?php echo $foto_vip; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            
+                            <div style="padding: 15px;">
+                                <h3 style="margin: 0 0 5px; font-size: 1.1rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><?php echo htmlspecialchars($vip['nombre']); ?></h3>
+                                <p style="margin: 0 0 10px; color: #777; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #EA4335;"></i> <?php echo htmlspecialchars($vip['municipio']); ?></p>
+                                <div style="background-color: #f0fdf4; color: #166534; text-align: center; padding: 8px; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
+                                    <i class="fab fa-whatsapp"></i> Contactar ahora
+                                </div>
+                            </div>
+                        </a>
+
+                        <?php
+                    }
+                } else {
+                    // Si aún no hay VIPs, mostramos un mensaje que invita a ser el primero
+                    echo "<div style='width: 100%; text-align: center; padding: 30px; background: white; border-radius: 15px; border: 1px dashed #ccc;'><p style='color: #777; font-size: 1.1rem; margin-bottom: 10px;'>Sé el primero en destacar en la portada de Yakomayo.</p><a href='planes.php' style='color: #FFC107; font-weight: bold; text-decoration: none; font-size: 1.1rem;'>¡Conviértete en VIP aquí!</a></div>";
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, #FFC107, #FF9800); padding: 70px 20px; text-align: center; color: black;">
+        <h2 style="margin-top: 0; font-size: 2.5rem; font-weight: 900; letter-spacing: -1px;">¿Tienes un negocio en el Putumayo?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 500;">Miles de personas buscan lo que tú vendes. Únete a Yakomayo y empieza a recibir clientes directo a tu WhatsApp hoy mismo.</p>
+        
+        <a href="registro.php" style="background: #1a1a1a; color: white; padding: 18px 45px; border-radius: 40px; font-size: 1.2rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fas fa-rocket"></i> Crear mi Vitrina Gratis
+        </a>
+    </section>
 
     <footer style="background-color: #1a1a1a; color: #fff; padding: 60px 20px 30px; margin-top: 60px; border-top: 4px solid #FFC107; font-family: 'Poppins', sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px;">
