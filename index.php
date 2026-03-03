@@ -5,6 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yakomayo.com - El Directorio del Putumayo</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFC107">
+    <link rel="apple-touch-icon" href="img/jaguar-solo.png">
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js')
+            .then(registro => {
+              console.log('¡Motor PWA encendido! Alcance:', registro.scope);
+            })
+            .catch(error => {
+              console.log('Fallo al encender PWA:', error);
+            });
+        });
+      }
+    </script>
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

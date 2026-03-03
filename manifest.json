@@ -1,0 +1,22 @@
+{
+  "name": "Yakomayo Directorio",
+  "short_name": "Yakomayo",
+  "description": "El directorio digital más completo del Putumayo. Encuentra los mejores negocios locales.",
+  "start_url": "/index.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FFC107",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "img/jaguar-solo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/jaguar-solo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
