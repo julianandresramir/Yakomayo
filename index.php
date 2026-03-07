@@ -115,7 +115,7 @@
         <p class="hero-slogan">Si está en el Putumayo, está aquí. Conectamos negocios de todos los tamaños con clientes reales.</p>
         
         <form action="buscar.php" method="GET" class="search-box">
-            <input type="text" name="q" placeholder="¿Qué buscas? (Ej. Pizza, Ropa, Hotel)..." required>
+            <input type="text" name="q" placeholder="¿Qué buscas? (Ej: Pizza, Ropa, Hotel)..." required>
             <select name="ciudad">
                 <option value="">📍 Todo el Putumayo</option>
                 <option value="Mocoa" selected>Mocoa</option>
@@ -373,14 +373,14 @@
                     <i class="fab fa-instagram"></i>
                 </a>
                 
-                <a href="#" onclick="alert('¡Estamos preparando nuestros bailes! Síguenos pronto.'); return false;" 
+                <a href="https://www.tiktok.com/@yakomayo" target="_blank" rel="noopener noreferrer"
                    style="background: #2a2a2a; color: white; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; text-decoration: none; font-size: 1.6rem; border: 2px solid #444; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" 
                    onmouseover="this.style.background='#000000'; this.style.borderColor='#ffffff'; this.style.transform='translateY(-5px) scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)';" 
                    onmouseout="this.style.background='#2a2a2a'; this.style.borderColor='#444'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';">
                     <i class="fab fa-tiktok"></i>
                 </a>
 
-                <a href="#" onclick="alert('¡Canal en construcción! Pronto videos de historia.'); return false;" 
+              <a href="https://www.youtube.com/channel/UC5YEX4cs9hc-nedWGesXSMA" target="_blank" rel="noopener noreferrer"
                    style="background: #2a2a2a; color: white; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; text-decoration: none; font-size: 1.6rem; border: 2px solid #444; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" 
                    onmouseover="this.style.background='#FF0000'; this.style.borderColor='#FF0000'; this.style.transform='translateY(-5px) scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(255, 0, 0, 0.4)';" 
                    onmouseout="this.style.background='#2a2a2a'; this.style.borderColor='#444'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';">
