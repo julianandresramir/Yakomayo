@@ -89,7 +89,7 @@
             </div>
             
             <ul class="features-list">
-                <li><i class="fas fa-check-circle"></i> <strong>Posición #1 en las búsquedas</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Posiciónamiento en las búsquedas</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Carrusel deslizable (Hasta 2 fotos)</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Marco Dorado "Destacado"</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Botones a Facebook e Instagram</strong></li>
@@ -98,25 +98,25 @@
                 <li><i class="fas fa-check-circle"></i> Soporte prioritario del equipo</li>
             </ul>
             
-            <a href="https://wa.me/3002580755?text=Hola%20Julián,%20quiero%20el%20Plan%20VIP%20Mensual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium">¡Quiero ser Premium! <i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/3208439170?text=Hola%20Jar Lab,%20quiero%20el%20Plan%20VIP%20Mensual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium">¡Quiero ser Premium! <i class="fab fa-whatsapp"></i></a>
         </div>
 
         <div class="pricing-card card-premium" style="border: 2px solid #27ae60;">
-            <div class="ribbon" style="background-color: #27ae60;"><i class="fas fa-gift"></i> AHORRA 2 MESES</div>
+            <div class="ribbon" style="background-color: #27ae60;"><i class="fas fa-gift"></i> AHORRA y CRECE</div>
             <div class="pricing-header">
                 <h2>VIP Anual</h2>
                 <p style="color: #7f8c8d;">Maximiza tu impacto todo el año pagando menos. Tu mejor inversión a largo plazo.</p>
-                <div class="price">$300.000 <span>COP / año</span></div> 
+                <div class="price">$320.000 <span>COP / año</span></div> 
             </div>
             
             <ul class="features-list">
                 <li><i class="fas fa-check-circle"></i> <strong>Todo lo del plan VIP Mensual</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Ahorras $60.000 pesos al año</strong></li>
                 <li><i class="fas fa-check-circle"></i> <strong>Facturación en un solo pago</strong></li>
-                <li><i class="fas fa-check-circle"></i> <strong>Congelas el precio (Inmune a subidas)</strong></li>
+                <li><i class="fas fa-check-circle"></i> <strong>Agendas una auditoria UX en 1 producto digital"Diagnóstico profesional de tu página web o redes sociales"</strong></li>
             </ul>
             
-            <a href="https://wa.me/3002580755?text=Hola%20Julián,%20quiero%20aprovechar%20el%20ahorro%20del%20Plan%20VIP%20Anual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium" style="background-color: #27ae60; color: white;">¡Quiero Ahorrar! <i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/3208439170?text=Hola%20Jar Lab,%20quiero%20aprovechar%20el%20ahorro%20del%20Plan%20VIP%20Anual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium" style="background-color: #27ae60; color: white;">¡Quiero Ahorrar y Crecer! <i class="fab fa-whatsapp"></i></a>
         </div>
 
     </div>

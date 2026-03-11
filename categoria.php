@@ -186,7 +186,10 @@ $result = $conn->query($sql);
                 <li><a href="index.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Inicio</a></li>
                 <li><a href="registro.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Registrar mi Negocio</a></li>
                 <li><a href="planes.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Planes Publicitarios</a></li>
-                <li><a href="contacto.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Contacto</a></li>
+                <li><a href="https://wa.me/3208439170" target="_blank" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#25D366'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';">
+        <i class="fab fa-whatsapp" style="font-size: 1rem; color: #25D366;"></i> WhatsApp: 3208439170
+    </a>
+</li>
             </ul>
         </div>
 
@@ -209,14 +212,14 @@ $result = $conn->query($sql);
                     <i class="fab fa-instagram"></i>
                 </a>
                 
-                <a href="#" onclick="alert('¡Estamos preparando nuestros bailes! Síguenos pronto.'); return false;" 
+                <a href="https://www.tiktok.com/@yakomayo" target="_blank" rel="noopener noreferrer" 
                    style="background: #2a2a2a; color: white; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; text-decoration: none; font-size: 1.6rem; border: 2px solid #444; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" 
                    onmouseover="this.style.background='#000000'; this.style.borderColor='#ffffff'; this.style.transform='translateY(-5px) scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)';" 
                    onmouseout="this.style.background='#2a2a2a'; this.style.borderColor='#444'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';">
                     <i class="fab fa-tiktok"></i>
                 </a>
 
-                <a href="#" onclick="alert('¡Canal en construcción! Pronto videos de historia.'); return false;" 
+                <a href="https://www.youtube.com/channel/UC5YEX4cs9hc-nedWGesXSMA" target="_blank" rel="noopener noreferrer" 
                    style="background: #2a2a2a; color: white; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; text-decoration: none; font-size: 1.6rem; border: 2px solid #444; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" 
                    onmouseover="this.style.background='#FF0000'; this.style.borderColor='#FF0000'; this.style.transform='translateY(-5px) scale(1.1)'; this.style.boxShadow='0 10px 20px rgba(255, 0, 0, 0.4)';" 
                    onmouseout="this.style.background='#2a2a2a'; this.style.borderColor='#444'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';">

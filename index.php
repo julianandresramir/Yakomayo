@@ -350,7 +350,10 @@
                 <li><a href="index.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Inicio</a></li>
                 <li><a href="registro.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Registrar mi Negocio</a></li>
                 <li><a href="planes.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Planes Publicitarios</a></li>
-                <li><a href="contacto.php" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#FFC107'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';"><i class="fas fa-chevron-right" style="font-size: 0.8rem; color: #555;"></i> Contacto</a></li>
+                <li><a href="https://wa.me/3208439170" target="_blank" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#25D366'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';">
+        <i class="fab fa-whatsapp" style="font-size: 1rem; color: #25D366;"></i> WhatsApp:  3208439170
+    </a>
+</li>
             </ul>
         </div>
 
