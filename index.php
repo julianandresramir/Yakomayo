@@ -295,12 +295,46 @@
                         
                         <a href="https://wa.me/57<?php echo $vip['telefono']; ?>" target="_blank" style="min-width: 260px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-decoration: none; color: inherit; scroll-snap-align: start; overflow: hidden; display: block; border: 2px solid #FFC107; transition: transform 0.3s;">
                             
-                            <div style="height: 160px; overflow: hidden; position: relative;">
-                                <span style="position: absolute; top: 12px; left: 12px; background: #FFC107; color: black; font-size: 0.75rem; font-weight: bold; padding: 5px 10px; border-radius: 20px; z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-                                    <i class="fas fa-crown"></i> VIP
-                                </span>
-                                <img src="<?php echo $foto_vip; ?>" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
+                            <div style="aspect-ratio: 4/3; width: 100%; position: relative; background: #1a1a1a; overflow: hidden;">
+    
+    <span style="position: absolute; top: 12px; left: 12px; background: #FFC107; color: black; font-weight: bold; padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; z-index: 10;">
+        <i class="fas fa-crown"></i> VIP
+    </span>
+
+    <div style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; scrollbar-width: none;" class="carrusel-vip">
+        
+        <?php if(!empty($vip['imagen'])): ?>
+    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+        <img src="<?php echo $vip['imagen']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+<?php endif; ?>
+
+<?php if(!empty($vip['imagen_2'])): ?>
+    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+        <img src="<?php echo $vip['imagen_2']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+<?php endif; ?>
+
+<?php if(!empty($vip['imagen_3'])): ?>
+    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+        <img src="<?php echo $vip['imagen_3']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+<?php endif; ?>
+
+<?php if(!empty($vip['imagen_4'])): ?>
+    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+        <img src="<?php echo $vip['imagen_4']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+<?php endif; ?>
+
+    </div>
+</div>
+
+<style>
+    .carrusel-vip::-webkit-scrollbar {
+        display: none;
+    }
+</style>
                             
                             <div style="padding: 15px;">
                                 <h3 style="margin: 0 0 5px; font-size: 1.1rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><?php echo htmlspecialchars($vip['nombre']); ?></h3>

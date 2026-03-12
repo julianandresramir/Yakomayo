@@ -104,16 +104,33 @@ $result = $conn->query($sql);
                         </div>
                     <?php endif; ?>
 
-                   <div style="height: 200px; background-color: #eee; display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;">
-    <?php 
-        $foto_mostrar = !empty($row['imagen']) ? "img/Negocios/" . $row['imagen'] : "img/jaguar-solo.png"; 
-        $ancho_foto = ($row['es_premium'] == 1 && !empty($row['imagen_2'])) ? '90%' : '100%';
-    ?>
-    <img src="<?php echo $foto_mostrar; ?>" style="min-width: <?php echo $ancho_foto; ?>; height: 100%; object-fit: cover; scroll-snap-align: start; border-radius: 4px;">
+                   <div style="height: 200px; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background-color: #eee; scrollbar-width: none;" class="carrusel-vip">
     
+    <?php 
+        $foto_principal = !empty($row['imagen']) ? $row['imagen'] : "img/jaguar-solo.png"; 
+    ?>
+    <div style="min-width: 100%; height: 100%; scroll-snap-align: center;">
+        <img src="<?php echo $foto_principal; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
     <?php if($row['es_premium'] == 1 && !empty($row['imagen_2'])): ?>
-    <img src="img/Negocios/<?php echo $row['imagen_2']; ?>" style="min-width: 90%; height: 100%; object-fit: cover; scroll-snap-align: start; border-radius: 4px;">
+        <div style="min-width: 100%; height: 100%; scroll-snap-align: center;">
+            <img src="<?php echo $row['imagen_2']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
     <?php endif; ?>
+
+    <?php if($row['es_premium'] == 1 && !empty($row['imagen_3'])): ?>
+        <div style="min-width: 100%; height: 100%; scroll-snap-align: center;">
+            <img src="<?php echo $row['imagen_3']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    <?php endif; ?>
+
+    <?php if($row['es_premium'] == 1 && !empty($row['imagen_4'])): ?>
+        <div style="min-width: 100%; height: 100%; scroll-snap-align: center;">
+            <img src="<?php echo $row['imagen_4']; ?>" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    <?php endif; ?>
+
 </div>
 
                     <div style="padding: 20px;">
