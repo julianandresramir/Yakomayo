@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $municipio = $_POST['municipio'];
     $telefono = $_POST['telefono'];
     $palabras_clave = $_POST['palabras_clave'] ?? '';
-    $foto = 'default.jpg'; 
+    $foto = 'img/jaguar-solo.png';
 
     // DATOS INVISIBLES (Auditoría Legal SIC)
     $fecha_registro = date('Y-m-d H:i:s'); 
