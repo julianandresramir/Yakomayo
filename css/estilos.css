@@ -151,3 +151,42 @@ a { text-decoration: none; }
     .categoria:last-child { grid-column: 1 / -1; width: 60%; margin: 0 auto; }
     .contenedor-footer { flex-direction: column; text-align: center; }
 }
+/* ========================================== */
+/* 🍏 PARCHE DEFINITIVO PARA SAFARI E iOS     */
+/* ========================================== */
+
+/* 1. DOMAR EL BUSCADOR (Quitar sombras y bordes feos de Apple) */
+.search-box input[type="text"],
+.search-box select {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important; /* Fuerza tus esquinas exactas */
+    -webkit-border-radius: 8px !important;
+    box-shadow: none !important; /* Mata la sombra gris interior de Safari */
+    opacity: 1 !important;
+}
+
+/* 2. DOMAR LAS IMÁGENES VIP (Evitar efecto jirafa/estirado) */
+/* Obligamos al contenedor flex de Safari a respetar la altura */
+.carrusel-vip {
+    align-items: stretch !important;
+}
+
+/* El div invisible que envuelve tu imagen */
+.carrusel-vip > div {
+    display: flex !important;
+    height: 100% !important; 
+    align-items: center !important;
+}
+
+/* La imagen final blindada */
+.carrusel-vip img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important; /* El secreto para frenar el estirón de Safari */
+    object-fit: cover !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+}

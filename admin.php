@@ -1,5 +1,11 @@
 <?php
 // 1. Conexión a tu base de datos
+session_start();
+// El Portero: Si no tienes la llave, te vas para el login
+if (!isset($_SESSION['admin_logueado']) || $_SESSION['admin_logueado'] !== true) {
+    header("Location: login.php");
+    exit();
+}
 include 'db.php';
 
 $mensaje = "";
@@ -131,6 +137,10 @@ $result = $conn->query($sql);
 
                             <td style="display: flex; gap: 8px;">
                                 
+                                <a href="editar.php?id=<?php echo $row['id']; ?>" class="btn" style="background-color: #3498db;">
+                                    <i class="fas fa-edit"></i> Editar
+                                </a>
+
                                 <a href="admin.php?toggle_premium=<?php echo $row['id']; ?>&estado_actual=<?php echo $row['es_premium']; ?>" 
                                    class="btn <?php echo $row['es_premium'] == 1 ? 'btn-normal' : 'btn-premium'; ?>"
                                    title="Cambiar estado del plan">
