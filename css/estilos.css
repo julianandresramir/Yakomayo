@@ -190,3 +190,15 @@ a { text-decoration: none; }
     display: block !important;
     flex-shrink: 0 !important;
 }
+/* ========================================== */
+/* 🍏 REFUERZO EXCLUSIVO PARA SAFARI EN HOME */
+/* ========================================== */
+
+/* Blindamos específicamente las imágenes de las tarjetas VIP */
+.seccion-vip .tarjeta-vip img {
+    width: 100% !important;
+    height: 180px !important; /* Fijamos una altura estándar para el Home */
+    object-fit: cover !important; /* Recorta el sobrante sin deformar */
+    flex-shrink: 0 !important; /* PROHÍBE a Safari estirar la imagen */
+    -webkit-flex-shrink: 0 !important;
+}
