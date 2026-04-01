@@ -225,57 +225,67 @@
                         $foto_vip = !empty($vip['imagen']) ? "img/Negocios/" . $vip['imagen'] : "img/jaguar-solo.png";
                         ?>
                         
-                        <a href="https://wa.me/57<?php echo $vip['telefono']; ?>" target="_blank" style="min-width: 260px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-decoration: none; color: inherit; scroll-snap-align: start; overflow: hidden; display: block; border: 2px solid #FFC107; transition: transform 0.3s;">
+                        <div style="min-width: 260px; max-width: 320px; flex: 0 0 auto; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); color: inherit; scroll-snap-align: start; overflow: hidden; display: flex; flex-direction: column; border: 2px solid #FFC107; transition: transform 0.3s;">
                             
                             <div style="aspect-ratio: 4/3; width: 100%; position: relative; background: #1a1a1a; overflow: hidden;">
-    
-    <span style="position: absolute; top: 12px; left: 12px; background: #FFC107; color: black; font-weight: bold; padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; z-index: 10;">
-        <i class="fas fa-crown"></i> VIP
-    </span>
+                                
+                                <span style="position: absolute; top: 12px; left: 12px; background: #FFC107; color: black; font-weight: bold; padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; z-index: 10;">
+                                    <i class="fas fa-crown"></i> VIP
+                                </span>
 
-    <div style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; scrollbar-width: none;" class="carrusel-vip">
-        
-        <?php if(!empty($vip['imagen'])): ?>
-    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
-        <img src="<?php echo $vip['imagen']; ?>" width="300" height="200" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-<?php endif; ?>
+                                <div style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 100%; width: 100%; position: absolute; top: 0; left: 0; scrollbar-width: none;" class="carrusel-vip">
+                                    
+                                    <?php if(!empty($vip['imagen'])): ?>
+                                        <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+                                            <img src="<?php echo $vip['imagen']; ?>" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+                                    <?php endif; ?>
 
-<?php if(!empty($vip['imagen_2'])): ?>
-    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
-        <img src="<?php echo $vip['imagen_2']; ?>" width="300" height="200" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-<?php endif; ?>
+                                    <?php if(!empty($vip['imagen_2'])): ?>
+                                        <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+                                            <img src="<?php echo $vip['imagen_2']; ?>" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+                                    <?php endif; ?>
 
-<?php if(!empty($vip['imagen_3'])): ?>
-    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
-        <img src="<?php echo $vip['imagen_3']; ?>" width="300" height="200" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-<?php endif; ?>
+                                    <?php if(!empty($vip['imagen_3'])): ?>
+                                        <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+                                            <img src="<?php echo $vip['imagen_3']; ?>" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+                                    <?php endif; ?>
 
-<?php if(!empty($vip['imagen_4'])): ?>
-    <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
-        <img src="<?php echo $vip['imagen_4']; ?>" width="300" height="200" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-<?php endif; ?>
-
-    </div>
-</div>
-
-<style>
-    .carrusel-vip::-webkit-scrollbar {
-        display: none;
-    }
-</style>
-                            
-                            <div style="padding: 15px;">
-                                <h3 style="margin: 0 0 5px; font-size: 1.1rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><?php echo htmlspecialchars($vip['nombre']); ?></h3>
-                                <p style="margin: 0 0 10px; color: #777; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #EA4335;"></i> <?php echo htmlspecialchars($vip['municipio']); ?></p>
-                                <div style="background-color: #f0fdf4; color: #166534; text-align: center; padding: 8px; border-radius: 8px; font-weight: 600; font-size: 0.85rem;">
-                                    <i class="fab fa-whatsapp"></i> Contactar ahora
+                                    <?php if(!empty($vip['imagen_4'])): ?>
+                                        <div style="min-width: 100%; height: 100%; scroll-snap-align: center; flex-shrink: 0;">
+                                            <img src="<?php echo $vip['imagen_4']; ?>" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+                                    <?php endif; ?>
+                                    
                                 </div>
                             </div>
-                        </a>
+
+                            <style>
+                                .carrusel-vip::-webkit-scrollbar {
+                                    display: none;
+                                }
+                            </style>
+                            
+                            <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1;">
+                                <h3 style="margin: 0 0 5px; font-size: 1.1rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><?php echo htmlspecialchars($vip['nombre']); ?></h3>
+                                <p style="margin: 0 0 10px; color: #777; font-size: 0.9rem; flex-grow: 1;"><i class="fas fa-map-marker-alt" style="color: #EA4335;"></i> <?php echo htmlspecialchars($vip['municipio']); ?></p>
+                                
+                                <div style="display: flex; gap: 8px; margin-top: auto;">
+                                    <a href="https://wa.me/57<?php echo $vip['telefono']; ?>" target="_blank" style="flex: 1; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; text-decoration: none; transition: 0.3s;">
+                                        <i class="fab fa-whatsapp"></i> WhatsApp
+                                    </a>
+
+                                    <?php if (!empty($vip['sitio_web'])): ?>
+                                        <a href="<?php echo htmlspecialchars($vip['sitio_web']); ?>" target="_blank" style="flex: 1; background-color: #2c3e50; color: white; text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; text-decoration: none; transition: 0.3s;">
+                                            <i class="fas fa-globe"></i> Web
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        
 
                         <?php
                     }
@@ -319,6 +329,11 @@
                 <li><a href="https://wa.me/3208439170" target="_blank" style="color: #bbb; text-decoration: none; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='#25D366'; this.style.transform='translateX(5px)';" onmouseout="this.style.color='#bbb'; this.style.transform='translateX(0)';">
         <i class="fab fa-whatsapp" style="font-size: 1rem; color: #25D366;"></i> WhatsApp:  3208439170
     </a>
+    <?php if (!empty($vip['sitio_web'])): ?>
+                                        <a href="<?php echo htmlspecialchars($vip['sitio_web']); ?>" target="_blank" style="flex: 1; background-color: #2c3e50; color: white; text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; text-decoration: none; display: inline-block; transition: 0.3s;">
+                                            <i class="fas fa-globe"></i> Web
+                                        </a>
+                                    <?php endif; ?>
 </li>
             </ul>
         </div>

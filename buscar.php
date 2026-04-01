@@ -102,9 +102,7 @@ $result = $conn->query($sql);
                             <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;"><?php echo $row['descripcion']; ?></p>
                             <p style="font-size: 0.85rem; color: #555;"><i class="fas fa-map-marker-alt" style="color: #FFC107;"></i> <?php echo $row['direccion']; ?> - <strong><?php echo $row['municipio']; ?></strong></p>
                             
-                            <div style="background-color: #fff3cd; color: #856404; padding: 8px; border-radius: 5px; font-size: 0.75rem; margin-top: 15px; margin-bottom: 15px; border-left: 3px solid #ffeeba;">
-                                <i class="fas fa-exclamation-triangle"></i> Yakomayo no procesa pagos. Verifica al vendedor.
-                            </div>
+                           
 
                             <div style="display: flex; gap: 8px; margin-top: 15px;">
     

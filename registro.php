@@ -45,15 +45,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // --- 🛑 FIN DEL BLINDAJE LEGAL ---
 
-    // La instrucción SQL para guardar en la bodega
+    // La instrucción SQL BLINDADA (Prepared Statement)
+    // NOTA DEL CTO: Cambiamos el 1 por un 0 en 'es_premium' para que todos nazcan con plan básico
     $sql = "INSERT INTO comercios (categoria_id, nombre, descripcion, palabras_clave, direccion, telefono, municipio, imagen, es_premium, acepta_terminos, ip_registro, fecha_registro) 
-            VALUES ('$categoria_id', '$nombre', '$descripcion', '$palabras_clave', '$direccion', '$telefono', '$municipio', '$foto', 1, '$acepta_terminos', '$ip_registro', '$fecha_registro')";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)";
 
-    if ($conn->query($sql) === TRUE) {
-        $mensaje = "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: bold;'>¡Negocio registrado con éxito! 🎉</div>";
+    // Preparamos la consulta (La base de datos se pone el escudo)
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        // Vinculamos las variables a los signos de interrogación (?)
+        // La cadena "isssssssiss" le dice a la base de datos qué tipo de dato es cada uno (i = entero, s = texto)
+        $stmt->bind_param("isssssssiss", $categoria_id, $nombre, $descripcion, $palabras_clave, $direccion, $telefono, $municipio, $foto, $acepta_terminos, $ip_registro, $fecha_registro);
+
+        // Ejecutamos la consulta de forma segura
+        if ($stmt->execute()) {
+            $mensaje = "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: bold;'>¡Negocio registrado con éxito! 🎉</div>";
+        } else {
+            $mensaje = "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;'>Hubo un error al guardar: " . $stmt->error . "</div>";
+        }
+        
+        $stmt->close(); // Cerramos el escudo
     } else {
-        $mensaje = "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;'>Hubo un error: " . $conn->error . "</div>";
+        $mensaje = "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;'>Error de seguridad en la base de datos: " . $conn->error . "</div>";
     }
+    
     $conn->close();
 }
 ?>

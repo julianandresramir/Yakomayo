@@ -1,12 +1,11 @@
 <?php
-// 1. Conexión a la Base de Datos
+// 1. Conexión centralizada
 include 'db.php';
 
-// 2. Capturar el ID de la URL (ej: categoria.php?id=4)
+// 2. Capturar el ID de la URL
 $id_categoria = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// 3. EL DICCIONARIO MAESTRO (Aquí definimos los Títulos Nuevos)
-// Esto es lo que estaba desactualizado
+// 3. EL DICCIONARIO MAESTRO
 $nombres_categorias = [
     1 => "🍔 Restaurantes y Comidas Rápidas",
     2 => "🥐 Panaderías y Repostería",
@@ -31,7 +30,7 @@ $nombres_categorias = [
     21 => "🏛️ Entidades de Gobierno"
 ];
 
-// Si el ID existe en la lista, usamos ese nombre. Si no, ponemos "Categoría".
+// Asignar el título
 $titulo_categoria = isset($nombres_categorias[$id_categoria]) ? $nombres_categorias[$id_categoria] : "Resultados";
 
 // 4. Buscar los negocios de esa categoría en la BD
@@ -129,11 +128,7 @@ $result = $conn->query($sql);
                         <h3 style="margin-top: 0; color: #333;"><?php echo $row['nombre']; ?></h3>
                         <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;"><?php echo $row['descripcion']; ?></p>
                         <p style="font-size: 0.85rem; color: #555;"><i class="fas fa-map-marker-alt" style="color: #FFC107;"></i> <?php echo $row['direccion']; ?> - <strong><?php echo $row['municipio']; ?></strong></p>
-                        
-                        <div style="background-color: #fff3cd; color: #856404; padding: 8px; border-radius: 5px; font-size: 0.75rem; margin-top: 15px; margin-bottom: 15px; border-left: 3px solid #ffeeba;">
-                            <i class="fas fa-exclamation-triangle"></i> Yakomayo no procesa pagos. Verifica al vendedor.
-                        </div>
-
+                                         
                        <div style="display: flex; gap: 8px; margin-top: 15px;">
     
     <a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="flex-grow: 1; background-color: #25D366; color: white; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">

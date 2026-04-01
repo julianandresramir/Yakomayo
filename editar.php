@@ -29,7 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url_mapa = $conn->real_escape_string(trim($_POST['url_mapa']));
     $facebook = $conn->real_escape_string(trim($_POST['facebook']));
     $instagram = $conn->real_escape_string(trim($_POST['instagram']));
-    
+    $sitio_web = $conn->real_escape_string(trim($_POST['sitio_web']));
+
     // Actualizamos TODOS los campos en la tabla
     $sql_update = "UPDATE comercios SET 
         nombre = '$nombre',
@@ -45,7 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         imagen_4 = '$imagen_4',
         url_mapa = '$url_mapa',
         facebook = '$facebook',
-        instagram = '$instagram'
+        instagram = '$instagram',
+        sitio_web = '$sitio_web'
         WHERE id = $id_editar";
     
     if ($conn->query($sql_update) === TRUE) {
@@ -194,6 +196,11 @@ if (isset($_GET['id']) || isset($_POST['id'])) {
                         <input type="text" name="instagram" value="<?php echo htmlspecialchars($negocio['instagram']); ?>">
                     </div>
                 </div>
+                
+                <div class="form-group">
+        <label><i class="fas fa-globe" style="color:#3498db;"></i> Sitio Web (Exclusivo VIP):</label>
+        <input type="text" name="sitio_web" value="<?php echo htmlspecialchars($negocio['sitio_web']); ?>" placeholder="https://www.mipagina.com">
+    </div>
 
                 <h3 class="section-title"><i class="fas fa-images"></i> Recursos Gráficos (Nombres de archivo .webp/.png)</h3>
                 <div class="grid-2">
