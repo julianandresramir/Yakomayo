@@ -43,15 +43,15 @@
 
     <div class="hero-banner">
 
-        <div class="hero-brand">
-            <img src="img/jaguar-solo.png" alt="Logo Yakomayo" width="100" height="100">
+        <div class="hero-brand animate-fade-up">
+            <img src="img/jaguar-solo.png" alt="Logo Yakomayo" width="100" height="100" class="animate-floating">
             <h1>Yakomayo</h1>
         </div>
 
-        <p class="hero-slogan" style="margin: 15px 20px; text-align: center; color: white;">Si está en el Putumayo, está
+        <p class="hero-slogan animate-fade-up delay-1" style="margin: 15px 20px; text-align: center; color: white;">Si está en el Putumayo, está
             aquí. Conectamos negocios de todos los tamaños con clientes reales.</p>
 
-        <form action="buscar.php" method="GET" class="search-smart-container">
+        <form action="buscar.php" method="GET" class="search-smart-container animate-fade-up delay-2">
 
             <input type="text" name="q" placeholder="¿Qué buscas? (Ej: Pizza, Ropa, Hotel)..." required
                 class="search-smart-input">

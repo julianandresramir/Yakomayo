@@ -31,16 +31,67 @@ a {
    2. CABECERA (HEADER) Y BUSCADOR (PC)
    ========================================= */
 
-/* EL FONDO DE LAS MONTAÑAS QUE SE HABÍA PERDIDO */
+/* EL FONDO DE LAS MONTAÑAS ANIMADO (KEN BURNS) */
 .hero-banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../img/portada-putumayo.webp') center/cover no-repeat;
     min-height: 480px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-bottom: 60px;
+    overflow: hidden; /* Necesario para que el zoom no desborde la pantalla */
+    z-index: 1; /* Crear contexto de apilamiento */
 }
+
+/* El pseudo-elemento que contiene la imagen a escalar */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../img/portada-putumayo.webp') center/cover no-repeat;
+    z-index: -1;
+    will-change: transform;
+    animation: kenBurns 20s infinite alternate ease-in-out;
+    transform: translateZ(0); /* Aceleración por hardware VITAL para celulares gama baja */
+}
+
+/* =========================================
+   ANIMACIONES UX Y ACELERACIÓN DE HARDWARE 
+   ========================================= */
+@keyframes kenBurns {
+    0% { transform: scale(1) translateZ(0); }
+    100% { transform: scale(1.1) translateZ(0); }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px) translateZ(0); }
+    100% { opacity: 1; transform: translateY(0) translateZ(0); }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0) translateZ(0); }
+    50% { transform: translateY(-8px) translateZ(0); }
+}
+
+.animate-floating {
+    will-change: transform;
+    animation: floating 4s infinite ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.animate-fade-up {
+    opacity: 0; /* Oculto hasta que cargue la animación */
+    will-change: transform, opacity;
+    animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    transform-style: preserve-3d;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
 
 /* ===== HERO BRAND - FULLY RESPONSIVE ===== */
 .hero-brand {
