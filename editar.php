@@ -12,7 +12,7 @@ $negocio = null;
 
 // 1. Si el CEO presiona "Guardar Cambios"
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_editar = $_POST['id'];
+    $id_editar = (int)$_POST['id'];
     
     // Recibimos y "limpiamos" los datos (El escudo de seguridad para que no rompan la DB con comillas)
     $nombre = $conn->real_escape_string(trim($_POST['nombre']));
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // 2. Traer los datos del negocio que seleccionamos
 if (isset($_GET['id']) || isset($_POST['id'])) {
-    $id = isset($_GET['id']) ? $_GET['id'] : $_POST['id'];
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : (int)$_POST['id'];
     $sql = "SELECT * FROM comercios WHERE id = $id";
     $result = $conn->query($sql);
     

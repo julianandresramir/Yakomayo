@@ -7,3 +7,20 @@
   ExpiresByType text/css "access plus 1 month"
   ExpiresDefault "access plus 2 days"
 </IfModule>
+
+<IfModule mod_headers.c>
+  # Forzar uso siempre sobre HTTPS (Obligatorio para PWAs seguras)
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  
+  # Bloquear que otro sitio meta tu web en un Iframe (Clickjacking)
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Evita que el navegador adivine tipos de archivos y evite brechas XSS
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Forzar protección XSS del navegador (Capa extra de legado)
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Evita fuga de información hacia afuera cuando hay links
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

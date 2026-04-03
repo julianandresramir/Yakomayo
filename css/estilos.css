@@ -1,13 +1,31 @@
 /* =========================================
    1. FORZAR MODO CLARO Y GLOBALES
    ========================================= */
-:root { color-scheme: light; }
+:root {
+    color-scheme: light;
+}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-body { font-family: 'Poppins', sans-serif; background-color: #f9f4e6; color: #333; }
-a { text-decoration: none; }
-.contenedor { width: 90%; max-width: 1200px; margin: 0 auto; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f4e6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 /* =========================================
    2. CABECERA (HEADER) Y BUSCADOR (PC)
@@ -26,146 +44,405 @@ a { text-decoration: none; }
 
 /* ===== HERO BRAND - FULLY RESPONSIVE ===== */
 .hero-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px;
-  padding-top: max(80px, env(safe-area-inset-top, 80px));
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-top: max(80px, env(safe-area-inset-top, 80px));
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
 }
 
 .hero-brand img {
-  display: block;
-  width: 100px;
-  height: auto;
-  max-width: 20vw;
-  min-width: 60px;
-  margin-bottom: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  image-rendering: crisp-edges;
+    display: block;
+    width: 100px;
+    height: auto;
+    max-width: 20vw;
+    min-width: 60px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    image-rendering: crisp-edges;
 }
 
 .hero-brand h1 {
-  font-size: 3.5rem;
-  font-size: clamp(1.8rem, 8vw, 3.5rem);
-  font-weight: 900;
-  margin: 0;
-  padding: 0;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: -1.5px;
-  line-height: 1;
-  width: 100%;
-  box-sizing: border-box;
-  word-break: break-word;
-  hyphens: auto;
-  max-width: 100%;
+    font-size: 3.5rem;
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1.5px;
+    line-height: 1;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    hyphens: auto;
+    max-width: 100%;
 }
 
-.form-busqueda { margin-top: 25px; display: flex; justify-content: center; gap: 10px; }   
-.select-ciudad { padding: 12px 20px; border: 2px solid #eee; border-radius: 50px; background-color: white; font-size: 1rem; color: #555; cursor: pointer; outline: none; transition: border-color 0.3s; }
-.select-ciudad:focus { border-color: #3498db; }
-.form-busqueda input { width: 70%; padding: 12px 20px; border: 2px solid #eee; border-radius: 50px; font-size: 1rem; outline: none; transition: border-color 0.3s; }
-.form-busqueda input:focus { border-color: #3498db; }
-.form-busqueda button { background-color: #2c3e50; color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background-color 0.3s; }
-.form-busqueda button:hover { background-color: #34495e; }
+/* SMART SEARCH BAR - DESKTOP PILL */
+.search-smart-container {
+    width: 90%;
+    max-width: 800px;
+    /* Espacioso para diseño horizontal */
+    margin: 25px auto 0;
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    padding: 8px;
+    /* Espacio para contener inputs */
+    gap: 0;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.search-smart-container:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 193, 7, 0.3);
+}
+
+.search-smart-input,
+.search-smart-select {
+    padding: 12px 20px;
+    font-size: 16px;
+    /* Evita que Safari en iOS haga zoom */
+    border: 1px solid transparent;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s, background-color 0.3s;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.search-smart-input {
+    flex: 2;
+    border-radius: 40px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-smart-select {
+    flex: 1;
+    border-left: 1px solid #eee;
+    /* División sutil entre texto y selector */
+    border-radius: 0;
+    cursor: pointer;
+    /* Flecha nativa personalizada para suplir el appearance:none en iOS */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.search-smart-input:focus,
+.search-smart-select:focus {
+    background-color: #f8f9fa;
+    border-radius: 40px;
+    border-color: #eee;
+}
+
+.search-smart-btn {
+    background-color: #ffc107;
+    color: black;
+    font-weight: bold;
+    padding: 0 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    height: 50px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.search-smart-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.02);
+}
 
 /* =========================================
    3. REJILLA DE CATEGORÍAS Y NEGOCIOS
    ========================================= */
-.grid-categorias { display: grid; gap: 15px; padding: 20px; max-width: 1400px; margin: 0 auto; grid-template-columns: repeat(7, 1fr); }
-.categoria, .tarjeta-negocio { background-color: #fff; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #eee; }
-.categoria { padding: 15px 5px; text-align: center; color: #333; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.categoria:hover, .tarjeta-negocio:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: #FFC107; }
-.categoria h3 { margin: 5px 0; font-size: 0.95rem; font-weight: 700; }
-.subtexto { font-size: 0.75rem; color: #777; line-height: 1.2; }
-.lista-negocios { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding-bottom: 50px; }
-.tarjeta-negocio { overflow: hidden; display: flex; flex-direction: column; }
-.foto-negocio { width: 100%; height: 200px; object-fit: cover; background-color: #eee; }
-.info-negocio { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; text-align: left; word-wrap: break-word; }
-.info-negocio h2 { margin-bottom: 10px; color: #2c3e50; font-size: 1.3rem; }
-.descripcion { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
-.detalles p { margin: 5px 0; font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 8px; }
-.btn-whatsapp { background-color: #25D366; color: white; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; margin-top: auto; display: block; }
-.btn-whatsapp:hover { background-color: #128C7E; }
+.grid-categorias {
+    display: grid;
+    gap: 15px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.categoria,
+.tarjeta-negocio {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.categoria {
+    padding: 15px 5px;
+    text-align: center;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.categoria:hover,
+.tarjeta-negocio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #FFC107;
+}
+
+.categoria h3 {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.subtexto {
+    font-size: 0.75rem;
+    color: #777;
+    line-height: 1.2;
+}
+
+.lista-negocios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.tarjeta-negocio {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.foto-negocio {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.info-negocio {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.info-negocio h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.descripcion {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.detalles p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
+    display: block;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}
 
 /* =========================================
    4. FOOTER (PIE DE PÁGINA)
    ========================================= */
-.footer-principal { background-color: #2c2c2c; color: #ffffff; padding: 60px 20px 20px; margin-top: 50px; }
-.contenedor-footer { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
-.columna-footer { flex: 1; min-width: 250px; }
-.columna-footer h3 { color: #FFC107; margin-top: 0; }
-.columna-footer h4 { border-bottom: 2px solid #FFC107; display: inline-block; padding-bottom: 5px; margin-bottom: 15px; }
-.columna-footer ul { list-style: none; padding: 0; }
-.columna-footer ul li { margin-bottom: 10px; }
-.columna-footer a { color: #ddd; text-decoration: none; transition: color 0.3s; }
-.columna-footer a:hover { color: #FFC107; }
-.copyright { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9rem; color: #aaa; }
+.footer-principal {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    margin-top: 50px;
+}
+
+.contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 250px;
+}
+
+.columna-footer h3 {
+    color: #FFC107;
+    margin-top: 0;
+}
+
+.columna-footer h4 {
+    border-bottom: 2px solid #FFC107;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 10px;
+}
+
+.columna-footer a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.columna-footer a:hover {
+    color: #FFC107;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 0.9rem;
+    color: #aaa;
+}
 
 /* =========================================
    5. RESPONSIVE (TABLETS)
    ========================================= */
 @media (max-width: 1200px) {
-    .grid-categorias { grid-template-columns: repeat(4, 1fr); }
+    .grid-categorias {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 /* =========================================
    6. RESPONSIVE DEFINITIVO (MÓVILES)
    ========================================= */
-@media (max-width: 768px) {  /* <--- ¡ESTA LÍNEA ESTABA BORRADA! */
-    .hero-banner { min-height: 400px; }
-    
-    .form-busqueda {
+@media (max-width: 768px) {
+
+    /* <--- ¡ESTA LÍNEA ESTABA BORRADA! */
+    .hero-banner {
+        min-height: 400px;
+    }
+
+    /* BARRA DE BÚSQUEDA MÓVIL APILADA */
+    .search-smart-container {
         flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 0; 
+        align-items: stretch;
+        padding: 15px;
+        border-radius: 20px;
         background-color: white;
-        padding: 10px;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .select-ciudad, 
-    .form-busqueda input, 
-    .form-busqueda button {
+    .search-smart-input,
+    .search-smart-select,
+    .search-smart-btn {
         width: 100%;
-        height: 55px; 
-        margin-bottom: 10px;
-        border-radius: 10px; 
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        appearance: none;
+        margin-bottom: 12px;
+        border-radius: 12px !important;
+        border: 1px solid #ddd;
+        background-color: white;
+        flex: auto;
     }
-    .form-busqueda button { margin-bottom: 0; }
 
-    .grid-categorias { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .categoria:last-child { grid-column: 1 / -1; width: 60%; margin: 0 auto; }
-    .contenedor-footer { flex-direction: column; text-align: center; }
+    .search-smart-select {
+        border-left: 1px solid #ddd;
+    }
+
+    .search-smart-input:focus,
+    .search-smart-select:focus {
+        border-color: #FFC107;
+        background-color: transparent;
+    }
+
+    .search-smart-btn {
+        margin-bottom: 0;
+        border: none;
+        background-color: #ffc107;
+    }
+
+    .grid-categorias {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .categoria:last-child {
+        grid-column: 1 / -1;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .contenedor-footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
 /* ========================================== */
 /* 🍏 PARCHES DE APPLE Y SAFARI UNIFICADOS    */
 /* ========================================== */
 
 /* 1. DOMAR EL BUSCADOR (Quitar sombras y bordes feos de Apple) */
-.search-box input[type="text"],
-.search-box select {
+.search-smart-input,
+.search-smart-select {
     -webkit-appearance: none !important;
     appearance: none !important;
-    background-color: #ffffff !important;
-    border: 1px solid #ddd !important;
-    border-radius: 8px !important; /* Fuerza tus esquinas exactas */
-    -webkit-border-radius: 8px !important;
-    box-shadow: none !important; /* Mata la sombra gris interior de Safari */
+    box-shadow: none !important;
+    /* Mata la sombra gris interior de iOS */
     opacity: 1 !important;
+}
+
+/* 2. EVITAR ZOOM EN BOTONES EN IOS */
+.search-smart-btn {
+    touch-action: manipulation;
 }
 
 /* ========================================== */
@@ -173,15 +450,17 @@ a { text-decoration: none; }
 /* ========================================== */
 
 /* Para todas las imágenes de negocios (VIP y Normales) */
-.card img, 
-.tarjeta img, 
+.card img,
+.tarjeta img,
 .negocio-card img,
 .tarjeta-vip img,
 .carrusel-vip img {
     width: 100% !important;
     height: 180px !important;
-    min-height: 180px !important; /* El piso */
-    max-height: 180px !important; /* El techo (Vital para Safari + WebP) */
+    min-height: 180px !important;
+    /* El piso */
+    max-height: 180px !important;
+    /* El techo (Vital para Safari + WebP) */
     object-fit: cover !important;
     display: block !important;
     flex-shrink: 0 !important;

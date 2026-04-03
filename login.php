@@ -8,13 +8,19 @@ if (isset($_SESSION['admin_logueado']) && $_SESSION['admin_logueado'] === true) 
 }
 
 $error = "";
-// 🔐 AQUÍ PONES TU CONTRASEÑA MAESTRA DE CEO
-$password_maestra = "J2@15r1984*"; 
+// 🔐 HASH DINÁMICO DE SEGURIDAD
+// Aquí generamos el hash temporalmente. Lo ideal a futuro es almacenar ESTE hash ($hash_maestro) y no la contraseña.
+$hash_maestro = password_hash("J2@15r1984*", PASSWORD_BCRYPT); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password_ingresada = $_POST['password'];
     
-    if ($password_ingresada === $password_maestra) {
+    // Verificamos la contraseña encriptada (Previene Time-based Attacks)
+    if (password_verify($password_ingresada, $hash_maestro)) {
+        
+        // Bloqueo de Session Fixation: Generamos un nuevo ID de sesión seguro
+        session_regenerate_id(true);
+
         // ¡Contraseña correcta! Le damos la llave VIP
         $_SESSION['admin_logueado'] = true;
         header("Location: admin.php");

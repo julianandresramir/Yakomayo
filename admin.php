@@ -14,7 +14,7 @@ $mensaje = "";
 
 // A. Si el CEO hace clic en "Eliminar"
 if (isset($_GET['eliminar'])) {
-    $id_eliminar = $_GET['eliminar'];
+    $id_eliminar = (int)$_GET['eliminar']; // Seguridad: Forzar a Entero (Evita Inyección SQL)
     $sql_delete = "DELETE FROM comercios WHERE id = $id_eliminar";
     if ($conn->query($sql_delete) === TRUE) {
         $mensaje = "<div class='alerta exito'><i class='fas fa-check-circle'></i> Negocio eliminado correctamente del directorio.</div>";
@@ -25,9 +25,9 @@ if (isset($_GET['eliminar'])) {
 
 // B. Si el CEO hace clic en "Hacer Premium" o "Quitar Premium"
 if (isset($_GET['toggle_premium']) && isset($_GET['estado_actual'])) {
-    $id_premium = $_GET['toggle_premium'];
+    $id_premium = (int)$_GET['toggle_premium']; // Seguridad: Forzar a Entero (Evita Inyección SQL)
     // Cambiador mágico: si es 1 pasa a 0, si es 0 pasa a 1
-    $nuevo_estado = $_GET['estado_actual'] == 1 ? 0 : 1; 
+    $nuevo_estado = (int)$_GET['estado_actual'] == 1 ? 0 : 1; 
     
     $sql_premium = "UPDATE comercios SET es_premium = $nuevo_estado WHERE id = $id_premium";
     if ($conn->query($sql_premium) === TRUE) {
@@ -122,10 +122,10 @@ $result = $conn->query($sql);
                 <?php if ($result->num_rows > 0): ?>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td style="color: #888;">#<?php echo $row['id']; ?></td>
-                            <td><strong><?php echo $row['nombre']; ?></strong></td>
-                            <td><?php echo $row['municipio']; ?></td>
-                            <td><a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;"><i class="fab fa-whatsapp"></i> <?php echo $row['telefono']; ?></a></td>
+                            <td style="color: #888;">#<?php echo htmlspecialchars($row['id']); ?></td>
+                            <td><strong><?php echo htmlspecialchars($row['nombre']); ?></strong></td>
+                            <td><?php echo htmlspecialchars($row['municipio']); ?></td>
+                            <td><a href="https://wa.me/57<?php echo htmlspecialchars($row['telefono']); ?>" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;"><i class="fab fa-whatsapp"></i> <?php echo htmlspecialchars($row['telefono']); ?></a></td>
                             
                             <td>
                                 <?php if($row['es_premium'] == 1): ?>
@@ -147,9 +147,9 @@ $result = $conn->query($sql);
                                    <?php echo $row['es_premium'] == 1 ? '<i class="fas fa-arrow-down"></i> Bajar a Básico' : '<i class="fas fa-star"></i> Subir a Premium'; ?>
                                 </a>
 
-                                <a href="admin.php?eliminar=<?php echo $row['id']; ?>" 
+                                <a href="admin.php?eliminar=<?php echo htmlspecialchars($row['id']); ?>" 
                                    class="btn btn-danger" 
-                                   onclick="return confirm('⚠️ ALERTA: ¿Estás seguro de que deseas eliminar permanentemente a <?php echo $row['nombre']; ?> de la base de datos? Esto no se puede deshacer.');">
+                                   onclick="return confirm('⚠️ ALERTA: ¿Estás seguro de que deseas eliminar permanentemente a <?php echo htmlspecialchars(addslashes($row['nombre'])); ?> de la base de datos? Esto no se puede deshacer.');">
                                     <i class="fas fa-trash-alt"></i> Borrar
                                 </a>
 

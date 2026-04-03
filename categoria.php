@@ -125,13 +125,13 @@ $result = $conn->query($sql);
 </div>
 
                     <div style="padding: 20px;">
-                        <h3 style="margin-top: 0; color: #333;"><?php echo $row['nombre']; ?></h3>
-                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;"><?php echo $row['descripcion']; ?></p>
-                        <p style="font-size: 0.85rem; color: #555;"><i class="fas fa-map-marker-alt" style="color: #FFC107;"></i> <?php echo $row['direccion']; ?> - <strong><?php echo $row['municipio']; ?></strong></p>
+                        <h3 style="margin-top: 0; color: #333;"><?php echo htmlspecialchars($row['nombre']); ?></h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;"><?php echo htmlspecialchars($row['descripcion']); ?></p>
+                        <p style="font-size: 0.85rem; color: #555;"><i class="fas fa-map-marker-alt" style="color: #FFC107;"></i> <?php echo htmlspecialchars($row['direccion']); ?> - <strong><?php echo htmlspecialchars($row['municipio']); ?></strong></p>
                                          
                        <div style="display: flex; gap: 8px; margin-top: 15px;">
     
-    <a href="https://wa.me/57<?php echo $row['telefono']; ?>" target="_blank" style="flex-grow: 1; background-color: #25D366; color: white; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <a href="https://wa.me/57<?php echo htmlspecialchars($row['telefono']); ?>" target="_blank" style="flex-grow: 1; background-color: #25D366; color: white; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp
     </a>
 
