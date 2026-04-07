@@ -72,10 +72,17 @@
                 <li><i class="fas fa-check-circle"></i> 1 Foto de tu fachada o logo</li>
                 <li><i class="fas fa-check-circle"></i> Botón directo a tu WhatsApp</li>
                 <li><i class="fas fa-check-circle"></i> Dirección y categoría básica</li>
-                <li class="missing"><i class="fas fa-times-circle"></i> Sin Carrusel de 2 fotos</li>
+                <li class="missing"><i class="fas fa-times-circle"></i> Sin Carrusel de 4 fotos</li>
                 <li class="missing"><i class="fas fa-times-circle"></i> Posicionamiento debajo de los VIP</li>
                 <li class="missing"><i class="fas fa-times-circle"></i> Sin botones a Redes Sociales</li>
                 <li class="missing"><i class="fas fa-times-circle"></i> Sin botón de GPS "Cómo Llegar"</li>
+                <div style="background-color: #f0fdf4; border-left: 4px solid #25D366; padding: 12px; margin-top: 20px; border-radius: 6px; font-size: 0.9rem; text-align: left;">
+    <strong style="color: #166534;"><i class="fas fa-camera"></i> ¿Quieres añadir la foto de tu fachada?</strong><br>
+    <span style="color: #4b5563; display: block; margin-top: 5px;">Comunícate con nuestro equipo de soporte para subir tu imagen y descubre cómo destacar tu negocio.</span>
+    <a href="https://wa.me/573208439170?text=Hola,%20me%20registr%C3%A9%20en%20el%20plan%20gratis%20y%20quiero%20subir%20mi%20foto" target="_blank" style="display: inline-block; margin-top: 10px; color: #25D366; font-weight: bold; text-decoration: none; transition: 0.3s;">
+        <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i> Escríbenos aquí
+    </a>
+</div>
             </ul>
             
             <a href="registro.php" class="btn btn-basic">Crear Registro Gratis</a>
@@ -98,7 +105,7 @@
                 <li><i class="fas fa-check-circle"></i> Soporte prioritario del equipo</li>
             </ul>
             
-            <a href="https://wa.me/3208439170?text=Hola%20Jar Lab,%20quiero%20el%20Plan%20VIP%20Mensual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium">¡Quiero ser Premium! <i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/573208439170?text=Hola%20Jar Lab,%20quiero%20el%20Plan%20VIP%20Mensual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium">¡Quiero ser Premium! <i class="fab fa-whatsapp"></i></a>
         </div>
 
         <div class="pricing-card card-premium" style="border: 2px solid #27ae60;">
@@ -116,7 +123,7 @@
                 <li><i class="fas fa-check-circle"></i> <strong>Agendas una auditoria UX en 1 producto digital"Diagnóstico profesional de tu página web o redes sociales"</strong></li>
             </ul>
             
-            <a href="https://wa.me/3208439170?text=Hola%20Jar Lab,%20quiero%20aprovechar%20el%20ahorro%20del%20Plan%20VIP%20Anual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium" style="background-color: #27ae60; color: white;">¡Quiero Ahorrar y Crecer! <i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/573208439170?text=Hola%20Jar Lab,%20quiero%20aprovechar%20el%20ahorro%20del%20Plan%20VIP%20Anual%20para%20mi%20negocio%20en%20Yakomayo!" target="_blank" class="btn btn-premium" style="background-color: #27ae60; color: white;">¡Quiero Ahorrar y Crecer! <i class="fab fa-whatsapp"></i></a>
         </div>
 
     </div>
